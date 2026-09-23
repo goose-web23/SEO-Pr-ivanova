@@ -1,6 +1,7 @@
-{% load static %}<!DOCTYPE html>
+{% load static %}
+<!DOCTYPE html>
 {# SEO-ЗАДАНИЕ: язык страницы. Какой атрибут lang должен быть у сайта на русском? #}
-<html>
+<html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,12 +12,13 @@
   {# Шаблон хорошего title: «Главный ключ — уточнение | Подземка»,        #}
   {# длина ~50-65 символов, уникален для каждой страницы.                 #}
   {# ================================================================== #}
-  <title>{% block title %}Подземка{% endblock %}</title>
+  <title>{% block title %}| Подземка{% endblock %}</title>
 
   {# SEO-ЗАДАНИЕ (description): мета-описания нет вообще.                 #}
   {# ПОДСКАЗКА: <meta name="description" content="...">, 120-160 символов, #}
   {# уникально для каждой страницы. Заведите блок {% block description %}. #}
-
+  <meta name="description" content="{% block description %}{% endblock %}">
+  <link rel="icon" href="{% static 'img/favicon.png' %}">
   {# SEO-ЗАДАНИЕ (canonical): добавьте <link rel="canonical" href="...">  #}
   {# ПОДСКАЗКА: абсолютный URL можно получить через                         #}
   {# {{ request.scheme }}://{{ request.get_host }}{{ request.path }}        #}

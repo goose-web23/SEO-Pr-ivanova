@@ -13,7 +13,9 @@
 {#   "image", "description", "organizer".                               #}
 {# Проверьте в https://validator.schema.org/                            #}
 {# ================================================================== #}
-
+{% block title %}{{ poster.title }}: квиз по теме «{{ poster.topic }}» — {{ poster.date|date:"j E" }} | Подземка{% endblock %}
+{% block description %}{{ poster.title }}: квиз по теме «{{ poster.topic }}». Забронировать мероприятие в Чите{% endblock %}
+<link rel="canonical" href="http://127.0.0.1:8000/afisha/{{afisha.id}}">
 {% block breadcrumbs %}
   <nav class="container breadcrumbs mono" aria-label="Хлебные крошки">
     <a href="{% url 'venue:home' %}">Главная</a> <span>/</span>

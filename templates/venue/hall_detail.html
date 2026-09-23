@@ -8,7 +8,9 @@
 {# Description можно собрать из hall.short_description + вместимость + цена. #}
 {# Для og:image используйте картинку зала (абсолютный URL!).           #}
 {# ================================================================== #}
-
+{% block title %}{{ hall.get_meta_title }}{% endblock %}
+{% block description %}{{ hall.get_meta_description }}{% endblock %}
+<link rel="canonical" href="http://127.0.0.1:8000/halls/{{hall.id}}">
 {% block breadcrumbs %}
   {# SEO-ПОДСКАЗКА: заготовка крошек. Добавьте разметку BreadcrumbList (JSON-LD или microdata). #}
   <nav class="container breadcrumbs mono" aria-label="Хлебные крошки">

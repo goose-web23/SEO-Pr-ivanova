@@ -3,7 +3,10 @@
 {# SEO-ЗАДАНИЕ: служебная страница с формой. Решите, нужна ли она в индексе.  #}
 {# Если нет — закройте через <meta name="robots" content="noindex, follow">.    #}
 {# Почему в этом случае лучше noindex, а не Disallow в robots.txt?             #}
-
+<meta name="robots" content="noindex, follow">
+{% block title %} Бронирование зала | Подземка{% endblock %}
+{% block description %}Забронировать зал для мероприятия. Подбор меню, зала, программы. Выбор блюд, места и мероприятий{% endblock %}
+<link rel="canonical" href="http://127.0.0.1:8000/booking/">
 {% block content %}
 <section class="page-head">
   <div class="container">

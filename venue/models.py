@@ -36,12 +36,9 @@ class Hall(models.Model):
         "Картинка (путь в static)", max_length=200, default="img/hall-depo.jpg",
     )
 
-    # SEO-ЗАДАНИЕ (управляемые мета-теги):
-    # ПОДСКАЗКА: хорошая практика — дать контент-менеджеру возможность задать
-    # title и description для каждой страницы вручную:
-    #     meta_title = models.CharField(max_length=70, blank=True)
-    #     meta_description = models.CharField(max_length=160, blank=True)
-    # а в шаблоне выводить их, если заполнены, иначе — сгенерированные.
+    meta_title = models.CharField(max_length=70, blank=True)
+    meta_description = models.CharField(max_length=160, blank=True)
+
 
     order = models.PositiveSmallIntegerField("Порядок", default=0)
     is_active = models.BooleanField("Показывать на сайте", default=True)
