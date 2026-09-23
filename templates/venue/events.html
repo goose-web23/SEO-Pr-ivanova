@@ -7,6 +7,14 @@
 {% block title %}Мероприятия различнвх форматов - банкетный зал Чита | Подземка{% endblock %}
 {% block description %}Мероприятия в Чите. Афиша мероприятий. Проводим события любого масштаба. Ужины, дни рождения, свадьба, корпоративы, выпускные{% endblock %}
 <link rel="canonical" href="http://127.0.0.1:8000/events/">
+{% block og_type %}website{% endblock %}
+{% block og_title %}Форматы мероприятий в Чите — Подземка{% endblock %}
+{% block og_description %}Свадьбы, корпоративы, выпускные, дни рождения. Проводим события любого масштаба.{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}{% endblock %}
+{% block twitter_title %}Форматы мероприятий в Чите — Подземка{% endblock %}
+{% block twitter_description %}Свадьбы, корпоративы, выпускные, дни рождения.{% endblock %}
+{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}{% endblock %}
+
 {% block content %}
 <section class="page-head">
   <div class="container">

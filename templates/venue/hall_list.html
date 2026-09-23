@@ -6,6 +6,14 @@
 {% block title %}Залы для банкета в Чите до 350 гостей | Подземка{% endblock %}
 {% block description %}Банкетные залы в чите забронировать недорого. Выбрать банкетный зал для вашего мероприятия в городе Чита{% endblock %}
 <link rel="canonical" href="http://127.0.0.1:8000/halls/">
+
+{% block og_type %}website{% endblock %}
+{% block og_title %}Залы для банкета в Чите — Подземка{% endblock %}
+{% block og_description %}Четыре зала-станции метро. Вместимость до 350 гостей.{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}{% endblock %}
+{% block twitter_title %}Залы для банкета в Чите — Подземка{% endblock %}
+{% block twitter_description %}Четыре зала-станции метро. Вместимость до 350 гостей.{% endblock %}
+{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}{% endblock %}
 {% block content %}
 <section class="page-head">
   <div class="container">

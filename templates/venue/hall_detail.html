@@ -1,16 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
 
-{# ================================================================== #}
-{# SEO-ЗАДАНИЕ: динамические мета-теги.                                #}
-{# Title и description должны генерироваться из данных зала, например: #}
-{#   {% block title %}Зал «{{ hall.name }}» — банкет до {{ hall.capacity_banquet }} гостей | Подземка{% endblock %} #}
-{# Description можно собрать из hall.short_description + вместимость + цена. #}
-{# Для og:image используйте картинку зала (абсолютный URL!).           #}
-{# ================================================================== #}
 {% block title %}{{ hall.get_meta_title }}{% endblock %}
 {% block description %}{{ hall.get_meta_description }}{% endblock %}
 <link rel="canonical" href="http://127.0.0.1:8000/halls/{{hall.id}}">
+{% block og_type %}product{% endblock %}
+{% block og_title %}{% if hall.meta_title %}{{ hall.meta_title }}{% else %}{{ hall.name }} — зал до {{ hall.capacity_banquet }} гостей | Подземка{% endif %}{% endblock %}
+{% block og_description %}{% if hall.meta_description %}{{ hall.meta_description }}{% else %}{{ hall.short_description }}{% endif %}{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static hall.image %}{% endblock %}
+{% block twitter_title %}{% if hall.meta_title %}{{ hall.meta_title }}{% else %}{{ hall.name }} — зал до {{ hall.capacity_banquet }} гостей{% endif %}{% endblock %}
+{% block twitter_description %}{% if hall.meta_description %}{{ hall.meta_description }}{% else %}{{ hall.short_description }}{% endif %}{% endblock %}
+{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static hall.image %}{% endblock %}
+
+
 {% block breadcrumbs %}
   {# SEO-ПОДСКАЗКА: заготовка крошек. Добавьте разметку BreadcrumbList (JSON-LD или microdata). #}
   <nav class="container breadcrumbs mono" aria-label="Хлебные крошки">

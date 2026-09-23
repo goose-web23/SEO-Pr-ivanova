@@ -4,6 +4,14 @@
 {% block title %} Афиша событий в Чите: квизы и вечеринки | Подземка{% endblock %}
 {% block description %}Афиша событий в Чите. Бронирование банкетного зала под разные мероприятия. Организация мероприятий в Чите. {% endblock %}
 <link rel="canonical" href="http://127.0.0.1:8000/afisha/">
+{% block og_type %}website{% endblock %}
+{% block og_title %}Афиша событий в Чите — Подземка{% endblock %}
+{% block og_description %}Квизы, вечеринки, концерты. Афиша ближайших событий.{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}{% endblock %}
+{% block twitter_title %}Афиша событий в Чите — Подземка{% endblock %}
+{% block twitter_description %}Квизы, вечеринки, концерты. Афиша ближайших событий.{% endblock %}
+{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}{% endblock %}
+
 {% block content %}
 <section class="page-head">
   <div class="container">

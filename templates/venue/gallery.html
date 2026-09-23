@@ -5,6 +5,26 @@
 {% block title %} Галере. Банкетные залы Читы| Подземка{% endblock %}
 {% block description %}Фото с мероприятий в Чите. Галерея банкетных залов. Проведение мероприятий в зале в Чите{% endblock %}
 <link rel="canonical" href="http://127.0.0.1:8000/gallery/">
+{% block og_type %}website{% endblock %}
+{% block og_title %}Галерея банкетного зала в Чите — Подземка{% endblock %}
+{% block og_description %}Фотографии залов-станций метро. Кирпичные своды, бетон, неон.{% endblock %}
+{% block og_image %}
+  {% if photos %}
+    {{ request.scheme }}://{{ request.get_host }}{% static photos.0.src %}
+  {% else %}
+    {{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}
+  {% endif %}
+{% endblock %}
+{% block twitter_title %}Галерея банкетного зала в Чите — Подземка{% endblock %}
+{% block twitter_description %}Фотографии залов-станций метро.{% endblock %}
+{% block twitter_image %}
+  {% if photos %}
+    {{ request.scheme }}://{{ request.get_host }}{% static photos.0.src %}
+  {% else %}
+    {{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}
+  {% endif %}
+{% endblock %}
+
 {% block content %}
 <section class="page-head">
   <div class="container">

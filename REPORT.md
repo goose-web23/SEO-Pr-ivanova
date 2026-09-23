@@ -1,4 +1,4 @@
-#КАкие выявлены недостатки:
+# Какие выявлены недостатки:
 - Нет семантики и нужных тегов (title, description, h1) и тд
 - Нет файлов robots.txt и sitemap.xml
 - Open Graph
@@ -19,3 +19,9 @@ robots.txt с Disallow запрещает обход, но не удаляет �
 В модель Hall обавлены поля title и description, теперь в шаблоне они выводятся так: 
 {% block title %}{{ hall.get_meta_title }}{% endblock %}
 {% block description %}{{ hall.get_meta_description }}{% endblock %}
+
+# Блок 2
+
+## ЧТо добавлено:
+- open graph теги
+- это нужно для того, чтобы ссылка на любую страницу красиво выглядела в Telegram и ВКонтакте

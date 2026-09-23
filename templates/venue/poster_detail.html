@@ -16,6 +16,26 @@
 {% block title %}{{ poster.title }}: квиз по теме «{{ poster.topic }}» — {{ poster.date|date:"j E" }} | Подземка{% endblock %}
 {% block description %}{{ poster.title }}: квиз по теме «{{ poster.topic }}». Забронировать мероприятие в Чите{% endblock %}
 <link rel="canonical" href="http://127.0.0.1:8000/afisha/{{afisha.id}}">
+{% block og_type %}article{% endblock %}
+{% block og_title %}{{ poster.title }} — афиша Подземки{% endblock %}
+{% block og_description %}{{ poster.short_description }}{% endblock %}
+{% block og_image %}
+  {% if poster.image %}
+    {{ request.scheme }}://{{ request.get_host }}{% static poster.image %}
+  {% else %}
+    {{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}
+  {% endif %}
+{% endblock %}
+{% block twitter_title %}{{ poster.title }} — афиша Подземки{% endblock %}
+{% block twitter_description %}{{ poster.short_description }}{% endblock %}
+{% block twitter_image %}
+  {% if poster.image %}
+    {{ request.scheme }}://{{ request.get_host }}{% static poster.image %}
+  {% else %}
+    {{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}
+  {% endif %}
+{% endblock %}
+
 {% block breadcrumbs %}
   <nav class="container breadcrumbs mono" aria-label="Хлебные крошки">
     <a href="{% url 'venue:home' %}">Главная</a> <span>/</span>

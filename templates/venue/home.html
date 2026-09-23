@@ -8,6 +8,14 @@
 {% block title %}Банкетные залы в стиле лофт Чита | Подземка{% endblock %}
 {% block description %}Банкетный зал в стиле лофт Чита. Лучшие залы для ваших мероприятий. Подбор пространства до 350 человек. Маленькие и большие компании. Меню и напитки. Афиша мероприятий. Бронирование залов в Чите.{% endblock %}
 <link rel="canonical" href="http://127.0.0.1:8000">
+{% block og_type %}website{% endblock %}
+{% block og_title %}Банкетный зал в стиле лофт в Чите — Подземка{% endblock %}
+{% block og_description %}Кирпичные своды, бетон, неон. Четыре зала-станции метро. Свадьбы, корпоративы, выпускные.{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}{% endblock %}
+{% block twitter_title %}Банкетный зал в стиле лофт в Чите — Подземка{% endblock %}
+{% block twitter_description %}Кирпичные своды, бетон, неон. Четыре зала-станции метро.{% endblock %}
+{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}{% endblock %}
+
 {% block content %}
 
 <section class="hero">

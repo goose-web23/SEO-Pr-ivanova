@@ -5,6 +5,14 @@
 {% block title %}Банкетное меню рассчитать стоимость | Подземка{% endblock %}
 {% block description %}Рассчитать стоимость банкетного меню. От 3000 рублей с человека. Меню под разные стили мероприятий: день рождения, свадьба, выпускные, похороны.{% endblock %}
 <link rel="canonical" href="http://127.0.0.1:8000/menu/">
+{% block og_type %}website{% endblock %}
+{% block og_title %}Банкетное меню в Чите — Подземка{% endblock %}
+{% block og_description %}Сет-меню, фуршет, бар. Меню под ваш формат.{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}{% endblock %}
+{% block twitter_title %}Банкетное меню в Чите — Подземка{% endblock %}
+{% block twitter_description %}Сет-меню, фуршет, бар. Меню под ваш формат.{% endblock %}
+{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}{% endblock %}
+
 {% block content %}
 <section class="page-head">
   <div class="container">

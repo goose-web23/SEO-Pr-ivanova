@@ -7,6 +7,13 @@
 {% block title %} Бронирование зала | Подземка{% endblock %}
 {% block description %}Забронировать зал для мероприятия. Подбор меню, зала, программы. Выбор блюд, места и мероприятий{% endblock %}
 <link rel="canonical" href="http://127.0.0.1:8000/booking/">
+{% block og_type %}website{% endblock %}
+{% block og_title %}Бронирование зала в Чите — Подземка{% endblock %}
+{% block og_description %}Забронируйте зал. Оператор отвечает в течение 5 минут.{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}{% endblock %}
+{% block twitter_title %}Бронирование зала в Чите — Подземка{% endblock %}
+{% block twitter_description %}Забронируйте зал. Оператор отвечает в течение 5 минут.{% endblock %}
+{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}{% endblock %}
 {% block content %}
 <section class="page-head">
   <div class="container">

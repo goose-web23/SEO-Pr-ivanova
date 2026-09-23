@@ -5,6 +5,14 @@
 {% block title %} Контакты | Подземка{% endblock %}
 {% block description %}Банкетный зал в Чите забронировать. Свяжитесь с нами. Отвечаем оперативно. Помогаем с подбором зала и меню. Оператор отвечает в течение 5 минут{% endblock %}
 <link rel="canonical" href="http://127.0.0.1:8000/contacts/">
+{% block og_type %}website{% endblock %}
+{% block og_title %}Контакты банкетного зала в Чите — Подземка{% endblock %}
+{% block og_description %}ул. Курнатовского, 17, Чита. Телефон, e-mail, время работы.{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}{% endblock %}
+{% block twitter_title %}Контакты банкетного зала в Чите — Подземка{% endblock %}
+{% block twitter_description %}ул. Курнатовского, 17, Чита. Телефон, e-mail.{% endblock %}
+{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}{% endblock %}
+
 {% block content %}
 <section class="page-head">
   <div class="container">
