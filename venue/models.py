@@ -7,6 +7,7 @@ class Hall(models.Model):
 
     name = models.CharField("Название", max_length=100)
     updated_at = models.DateTimeField("Обновлено", auto_now=True)
+    slug = models.SlugField("URL", max_length=120, unique=True, allow_unicode=True, null=True, blank=True)
     # SEO-ЗАДАНИЕ (ЧПУ — человекопонятные URL):
     # Сейчас залы открываются по адресу /halls/1/, /halls/2/ ... — это плохо для SEO.
     # ПОДСКАЗКА: добавьте поле
@@ -184,6 +185,7 @@ class Poster(models.Model):
     image = models.CharField("Картинка (путь в static)", max_length=200, blank=True)
     is_published = models.BooleanField("Опубликовано", default=True)
 
+    slug = models.SlugField("URL", max_length=180, unique=True, allow_unicode=True, null=True, blank=True)
     # SEO-ЗАДАНИЕ (ЧПУ): как и у залов, адрес события сейчас /afisha/1/.
     # Хороший адрес: /afisha/kviz-60-sekund-kompyuternye-igry/ — добавьте slug.
     # ПОДСКАЗКА: у события в афише есть всё для Schema.org Event:

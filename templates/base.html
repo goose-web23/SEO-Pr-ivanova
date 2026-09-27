@@ -1,6 +1,5 @@
 {% load static %}
 <!DOCTYPE html>
-{# SEO-ЗАДАНИЕ: язык страницы. Какой атрибут lang должен быть у сайта на русском? #}
 <html lang="ru">
 <head>
   <meta charset="utf-8">
@@ -39,7 +38,44 @@
   {# для организации (EventVenue / LocalBusiness): название, адрес, телефон,#}
   {# часы работы, координаты, ссылки на соцсети (sameAs).                    #}
   {# Данные уже есть в шаблоне: {{ site.name }}, {{ site.address }} и т.д.   #}
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EventVenue",
+  "name": "{{ site.name }}",
+  "legalName": "{{ site.legal_name }}",
+  "description": "Банкетный зал в стиле лофт в Чите. Кирпичные своды, бетон, неон. Четыре зала-станции метро.",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/",
+  "telephone": "{{ site.phone_raw }}",
+  "email": "{{ site.email }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ site.address }}",
+    "addressLocality": "{{ site.city }}",
+    "addressRegion": "{{ site.region }}",
+    "addressCountry": "RU"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 52.035530,
+    "longitude": 113.493054
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "12:00",
+    "closes": "02:00"
+  },
+  "sameAs": [
+    "https://vk.com/podzemka",
+    "https://t.me/podzemka"
+  ]
+}
+</script>
+
   {% block extra_head %}{% endblock %}
+  {% block breadcrumbs_jsonld %}{% endblock %}
+  
 </head>
 <body class="{% block body_class %}{% endblock %}">
   <div class="noise" aria-hidden="true"></div>

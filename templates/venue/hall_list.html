@@ -14,6 +14,36 @@
 {% block twitter_title %}Залы для банкета в Чите — Подземка{% endblock %}
 {% block twitter_description %}Четыре зала-станции метро. Вместимость до 350 гостей.{% endblock %}
 {% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}{% endblock %}
+
+{% block breadcrumbs_jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'venue:home' %}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Залы",
+      "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'venue:hall_list' %}"
+    }
+  ]
+}
+</script>
+{% endblock %}
+{% block breadcrumbs %}
+<nav class="breadcrumbs" aria-label="Хлебные крошки">
+  <a href="{% url 'venue:home' %}">Главная</a>
+  <span aria-hidden="true">→</span>
+  <span>Залы</span>
+</nav>
+{% endblock %}
 {% block content %}
 <section class="page-head">
   <div class="container">
