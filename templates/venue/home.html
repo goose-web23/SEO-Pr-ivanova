@@ -88,15 +88,18 @@
 <section class="section section--concrete">
   <div class="container about">
     <div class="about__text">
-      {# SEO-ЗАДАНИЕ: вот он — второй h1. Исправьте на h2. #}
-      <h1 class="section__title">О площадке</h1>
+      <h2 class="section__title">О площадке</h2>
       <p>Раньше здесь было бомбоубежище и техпомещения. Стены и своды мы оставили как были, добавили свет, звук, кухню и бар.</p>
       <p>Проводим свадьбы, выпускные, корпоративы, дни рождения. Бывают концерты и вечеринки, их смотрите в афише. Звук и свет свои, ведущего и декоратора можно привести своих.</p>
       <a href="{% url 'venue:events' %}" class="link-arrow">Все форматы мероприятий →</a>
     </div>
     <div class="about__img">
       {# SEO-ЗАДАНИЕ (изображения): у картинки нет alt, width/height и loading="lazy". #}
-      <img src="{% static 'img/hall-platforma.jpg' %}">
+      <img src="{% static 'img/hall-platforma.jpg' %}"
+      alt="Банкетный зал «Платформа» в Подземке — кирпичные своды, неоновая подсветка"
+  width="800"
+  height="533"
+  loading="lazy">
     </div>
   </div>
 </section>
@@ -109,8 +112,7 @@
     <div class="formats-list">
       {% for f in formats %}
         <article class="formats-list__item">
-          {# SEO-ЗАДАНИЕ: иерархия заголовков нарушена — после h2 сразу идёт h4. #}
-          <h4>{{ f.title }}</h4>
+          <h3>{{ f.title }}</h3>
           <p>{{ f.description }}</p>
         </article>
       {% endfor %}
@@ -130,9 +132,7 @@
         {% include "includes/package_card.html" with p=p %}
       {% endfor %}
     </div>
-    {# SEO-ЗАДАНИЕ (анкоры ссылок): «Подробнее» / «тут» — плохой текст ссылки. #}
-    {# Сделайте анкор информативным: например, «Всё банкетное меню и цены». #}
-    <p class="center"><a href="{% url 'venue:menu' %}" class="btn btn--ghost">Подробнее</a></p>
+    <p class="center"><a href="{% url 'venue:menu' %}" class="btn btn--ghost">Всё банкетное меню и цены →</a></p>
   </div>
 </section>
 {% endif %}

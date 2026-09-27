@@ -1,10 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{# ================================================================== #}
-{# SEO-ЗАДАНИЕ: динамические title и description события, например:   #}
-{#   «{{ poster.title }}: квиз по теме «{{ poster.topic }}» — {{ poster.date|date:"j E" }} | Подземка» #}
-{#                                                                      #}
+
 {# SEO-ЗАДАНИЕ (Schema.org Event, JSON-LD) — положите в extra_head:     #}
 {#   "@type": "Event", "name", "startDate" (ISO 8601, с временем и      #}
 {#   часовым поясом +09:00 — это Чита!), "eventStatus",                 #}
@@ -53,8 +50,10 @@
       {% else %}
         <span class="date-badge"><b>{{ poster.date|date:"d" }}</b><span>{{ poster.date|date:"b" }}</span></span>
       {% endif %}
-      {# SEO-ЗАДАНИЕ: картинка весит ~2,5 МБ. Сожмите, добавьте alt/width/height. #}
-      {% if poster.image %}<img src="{% static poster.image %}">{% endif %}
+      {% if poster.image %}<img src="{% static poster.image %}"  alt="{{ p.title }} — событие в банкетном зале «Подземка» в Чите"
+  width="800"
+  height="533"
+  loading="lazy">{% endif %}
     </div>
 
     <div class="poster__info">
