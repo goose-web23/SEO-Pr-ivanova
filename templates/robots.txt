@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /booking/
+Disallow: /home/
+Disallow: /accounts/
+Disallow: /search/
+Allow: /
+
+Sitemap: http://127.0.0.1:8000/sitemap.xml

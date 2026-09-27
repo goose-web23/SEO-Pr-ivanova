@@ -6,7 +6,7 @@ class Hall(models.Model):
     """Зал (в стилистике сайта — «станция»)."""
 
     name = models.CharField("Название", max_length=100)
-
+    updated_at = models.DateTimeField("Обновлено", auto_now=True)
     # SEO-ЗАДАНИЕ (ЧПУ — человекопонятные URL):
     # Сейчас залы открываются по адресу /halls/1/, /halls/2/ ... — это плохо для SEO.
     # ПОДСКАЗКА: добавьте поле

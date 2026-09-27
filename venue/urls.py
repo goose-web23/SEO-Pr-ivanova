@@ -1,7 +1,14 @@
-from django.urls import path
-
+from django.contrib import admin
+from django.urls import path, include
+from django.contrib.sitemaps.views import sitemap
+from django.views.generic import TemplateView
 from . import views
+from venue.sitemaps import StaticViewSitemap, HallSitemap
 
+sitemaps = {
+    "static": StaticViewSitemap,
+    "halls": HallSitemap,
+}
 app_name = "venue"
 
 urlpatterns = [
@@ -26,4 +33,16 @@ urlpatterns = [
     path("gallery/", views.gallery, name="gallery"),
     path("contacts/", views.contacts, name="contacts"),
     path("booking/", views.booking, name="booking"),
+
+    path(
+        'robots.txt',
+        TemplateView.as_view(template_name='robots.txt', content_type='text/plain'),
+        name='robots',
+    ),
+    path(
+        "sitemap.xml",
+        sitemap,
+        {"sitemaps": sitemaps},
+        name="django.contrib.sitemaps.views.sitemap",
+    ),
 ]

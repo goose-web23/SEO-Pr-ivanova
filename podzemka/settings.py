@@ -1,10 +1,3 @@
-"""
-Настройки проекта «Подземка» — банкетный зал в стиле лофт / андеграунд.
-
-Учебный проект по SEO. Ищите по проекту комментарии с пометкой «SEO-ЗАДАНИЕ»
-и «ПОДСКАЗКА» — это места, которые вам предстоит доработать (см. README.md).
-"""
-
 import os
 from pathlib import Path
 
@@ -28,10 +21,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # SEO-ЗАДАНИЕ (карта сайта):
-    # ПОДСКАЗКА: для генерации sitemap.xml в Django есть встроенный фреймворк.
-    # Нужно добавить сюда "django.contrib.sitemaps" (а при желании ещё
-    # "django.contrib.sites" + SITE_ID = 1, чтобы домен брался из БД).
+    'django.contrib.sitemaps',
     "venue",
 ]
 
