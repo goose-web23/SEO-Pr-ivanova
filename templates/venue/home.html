@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-{# SEO-ЗАДАНИЕ: на главной нет своего title и description — переопределите блоки. #}
-{# Какие ключевые запросы должна закрывать главная? Например: «банкетный зал в стиле лофт чита». #}
 
 {% block body_class %}page-home{% endblock %}
 {% block title %}Банкетные залы в стиле лофт Чита | Подземка{% endblock %}
@@ -15,7 +13,29 @@
 {% block twitter_title %}Банкетный зал в стиле лофт в Чите — Подземка{% endblock %}
 {% block twitter_description %}Кирпичные своды, бетон, неон. Четыре зала-станции метро.{% endblock %}
 {% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.png' %}{% endblock %}
+{% block extra_head %}
+{{ block.super }}
 
+{% if faqs %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [...]
+}
+</script>
+{% endif %}
+
+{% if rating and reviews_count %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EventVenue",
+  "aggregateRating": {...}
+}
+</script>
+{% endif %}
+{% endblock %}
 {% block content %}
 
 <section class="hero">
@@ -26,12 +46,6 @@
   <div class="container hero__inner">
     <p class="hero__kicker mono">↓ спуск −12 м · {{ site.city }}, {{ site.street }}</p>
 
-    {# ================================================================ #}
-    {# SEO-ЗАДАНИЕ (заголовки): на этой странице ДВА h1 — здесь и ниже,  #}
-    {# в блоке «О площадке». Должен быть ровно один h1 на странице, и    #}
-    {# он должен содержать главный ключ. Слово «ПОДЗЕМКА» само по себе   #}
-    {# ничего не говорит поисковику о том, что это банкетный зал.        #}
-    {# ================================================================ #}
     <h1 class="hero__title glitch" data-text="ПОДЗЕМКА">ПОДЗЕМКА</h1>
 
     <p class="hero__lead">Банкетный зал в&nbsp;подвале на&nbsp;Курнатовского,&nbsp;17. Свадьбы, дни рождения, корпоративы и&nbsp;концерты на&nbsp;30–350&nbsp;гостей. Своя кухня и&nbsp;бар.</p>
@@ -63,7 +77,6 @@
 <section class="section">
   <div class="container">
     <div class="section__head">
-      {# SEO-ПОДСКАЗКА: заголовки разделов — это h2. Хорошо, если в них есть ключи. #}
       <h2 class="section__title">Схема линий</h2>
       <p class="section__sub">Залы можно брать по отдельности или всю площадку целиком.</p>
     </div>
@@ -94,7 +107,6 @@
       <a href="{% url 'venue:events' %}" class="link-arrow">Все форматы мероприятий →</a>
     </div>
     <div class="about__img">
-      {# SEO-ЗАДАНИЕ (изображения): у картинки нет alt, width/height и loading="lazy". #}
       <img src="{% static 'img/hall-platforma.jpg' %}"
       alt="Банкетный зал «Платформа» в Подземке — кирпичные своды, неоновая подсветка"
   width="800"
@@ -164,7 +176,6 @@
     <div class="section__head">
       <h2 class="section__title">Частые вопросы</h2>
     </div>
-    {# SEO-ЗАДАНИЕ: добавьте JSON-LD FAQPage для этого блока (в {% block extra_head %}). #}
     <div class="faq">
       {% for q in faqs %}
         <details class="faq__item">

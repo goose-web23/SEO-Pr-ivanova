@@ -40,7 +40,17 @@
     <span>{{ poster.title }}</span>
   </nav>
 {% endblock %}
+{% block extra_head %}
+{{ block.super }}
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "{{ poster.title }}",
+}
+</script>
+{% endblock %}
 {% block content %}
 <section class="section section--tight">
   <div class="container poster">
